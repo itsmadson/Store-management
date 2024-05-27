@@ -1,0 +1,16 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "Store Management Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run rebuild && electron .",
+    "rebuild": "node-gyp rebuild --binding=\"E:/uni stuff/programing/final project/shop/binding.gyp\""
+  },
+  "dependencies": {
+    "electron": "^30.0.8"
+  },
+  "devDependencies": {
+    "node-addon-api": "^5.1.0"
+  }
+}
