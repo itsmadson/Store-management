@@ -1,3 +1,8 @@
+*Run:*
+```
+npm install
+npm start
+```
 
 ```
 shop
