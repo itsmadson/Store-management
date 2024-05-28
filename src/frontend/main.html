@@ -1,23 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>Store Management</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="app">
-      <h1>Store Management</h1>
-      <div id="product-list">
-        <h2>Products</h2>
-        <ul></ul>
-      </div>
-      <div id="cart">
-        <h2>Cart</h2>
-        <ul></ul>
-        <button id="purchase-btn" disabled>Purchase</button>
-      </div>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="products">
+            <h2>Products</h2>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="form-container">
+                <h3>Add/Edit Product</h3>
+                <form id="productForm">
+                    <label for="code">Code:</label>
+                    <input type="number" id="code" name="code" required>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" required>
+                    <label for="price">Price:</label>
+                    <input type="number" step="0.01" id="price" name="price" required>
+                    <button type="submit">Save</button>
+                </form>
+                <h3>Replenish Stock</h3>
+                <form id="replenishForm">
+                    <label for="replenishCode">Code:</label>
+                    <input type="number" id="replenishCode" name="replenishCode" required>
+                    <label for="replenishQuantity">Quantity:</label>
+                    <input type="number" id="replenishQuantity" name="replenishQuantity" required>
+                    <button type="submit">Replenish</button>
+                </form>
+            </div>
+        </div>
+        <div class="cart">
+            <h2>Cart</h2>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button id="purchaseBtn">Purchase</button>
+            <h3>Low Stock Report</h3>
+            <button id="lowStockBtn">Generate Low Stock Report</button>
+            <pre id="lowStockReport"></pre>
+        </div>
     </div>
     <script src="renderer.js"></script>
-  </body>
+</body>
 </html>
