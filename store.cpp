@@ -16,15 +16,17 @@ struct Product
 };
 
 vector<Product> inventory;
-const string INVENTORY_FILE = "inventory.txt";
+const string INVENTORY_FILE = "inventory.txt"; //make string of txt file
 
+//this function echo frame and name of menu
 void displayFrame(const string &title)
 {
-    cout << "*****************************\n";
-    cout << "*  " << setw(23) << left << title << " *\n";
-    cout << "*****************************\n";
+    cout << "**************************************\n";
+    cout << "*  " << setw(33) << left << title << " *\n";
+    cout << "**************************************\n";
 }
 
+//read product from inventory
 void loadInventory()
 {
     ifstream file(INVENTORY_FILE);
@@ -40,6 +42,7 @@ void loadInventory()
     }
 }
 
+//write product on inventory
 void saveInventory()
 {
     ofstream file(INVENTORY_FILE);
@@ -53,20 +56,22 @@ void saveInventory()
     }
 }
 
+//this function show us our inventory 
 void displayInventory()
 {
     displayFrame("Inventory");
-    cout << "| Code | Name      | Qty | Price  |\n";
-    cout << "+-----+----------+-----+--------+\n";
+    cout << "| Code |    Name    | Qty |   Price  |\n";
+    cout << "+------+------------+-----+----------+\n";
     for (const auto &p : inventory)
     {
         cout << "| " << left << setw(4) << p.code << " | "
-             << setw(8) << p.name << " | " << setw(3) << p.quantity << " | "
+             << setw(8) << p.name << "   | " << setw(4) << p.quantity << "| "
              << fixed << setprecision(2) << setw(6) << p.price << " |\n";
     }
-    cout << "+-----+----------+-----+--------+\n";
+    cout << "+------+------------+-----+----------+\n";
 }
 
+//it gets all information from user & call the save inventory function to write that on our txt file
 void addProduct()
 {
     Product p;
@@ -80,9 +85,10 @@ void addProduct()
     cin >> p.price;
     inventory.push_back(p);
     saveInventory();
-    cout << "Product added successfully.\n";
+    cout << "hoooraaa,ur product added successfully.\n";
 }
 
+//detect which product user want to edit with (code) and then it find that row then change that and save it to inventory with our saveinventory function
 void editProduct()
 {
     string code;
@@ -97,7 +103,7 @@ void editProduct()
         cout << "Enter new price: ";
         cin >> it->price;
         saveInventory();
-        cout << "Product updated successfully.\n";
+        cout << "updated successfully.\n";
     }
     else
     {
@@ -105,6 +111,7 @@ void editProduct()
     }
 }
 
+//find row of product with code, and then erase that line and save that
 void removeProduct()
 {
     string code;
@@ -124,6 +131,7 @@ void removeProduct()
     }
 }
 
+//i have nothing to say for this ZAYAS, brighter than day
 void manageInventory()
 {
     int choice;
@@ -156,6 +164,11 @@ void manageInventory()
     } while (choice != 4);
 }
 
+/*this function make invoice cart, first it ask for product that customer buy.
+and then find row of that product then check for quantity (maybe we dont have that quantity user want)
+and then get customer name & find price of that product and + together and make total price
+
+*/
 void createCart()
 {
     vector<pair<Product *, int>> cart;
@@ -229,10 +242,11 @@ void createCart()
     }
 }
 
+//brighter than day, i just use ANSI yellow color code for terminal echo, and ask for which menu user want to go and call that function relative to it
 int main()
 {
     loadInventory();
-
+    cout << "\033[33m";
     int choice;
     do
     {
