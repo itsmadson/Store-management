@@ -4,14 +4,14 @@ const { ipcRenderer } = require('electron');
 let inventoryFile = '';
 let inventory = [];
 
-// Listen for the inventory file path from the main process
+// inventory file path from the main process
 ipcRenderer.on('inventory-file-path', (event, filePath) => {
   inventoryFile = filePath;
   console.log('Using inventory file:', inventoryFile);
   loadInventory();
 });
 
-// Load inventory from the file
+// load inventory from the file func
 function loadInventory() {
   try {
     const data = fs.readFileSync(inventoryFile, 'utf8');
@@ -31,7 +31,7 @@ function loadInventory() {
   }
 }
 
-// Save inventory to the file
+// save inventory to the file func
 function saveInventory() {
   try {
     const data = inventory.map(p => `${p.code} ${p.name} ${p.quantity} ${p.price}`).join('\n');
@@ -42,7 +42,7 @@ function saveInventory() {
   }
 }
 
-// Display the inventory in the table
+// inventory table
 function displayInventory() {
   const tbody = document.querySelector('#inventoryTable tbody');
   tbody.innerHTML = '';
@@ -62,7 +62,7 @@ function displayInventory() {
   });
 }
 
-// Add or update a product in the inventory
+// add/update inventory
 function addProduct() {
   const code = document.getElementById('productCode').value;
   const name = document.getElementById('productName').value;
@@ -88,7 +88,7 @@ function addProduct() {
   document.getElementById('productForm').reset();
 }
 
-// Edit an existing product
+// edit product
 function editProduct(code) {
   const p = inventory.find(p => p.code === code);
   if (p) {
@@ -99,7 +99,7 @@ function editProduct(code) {
   }
 }
 
-// Remove a product from the inventory
+// remove product and save on inventory file
 function removeProduct(code) {
   const index = inventory.findIndex(p => p.code === code);
   if (index !== -1) {
@@ -109,7 +109,7 @@ function removeProduct(code) {
   }
 }
 
-// Create a new cart and display the invoice
+// cart func
 function createCart() {
   const cart = [];
   let totalPrice = 0;
@@ -167,7 +167,7 @@ function createCart() {
   }
 }
 
-// Event listeners setup
+// listener
 window.onload = () => {
   document.getElementById('createCartBtn').onclick = createCart
 };
