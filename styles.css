@@ -1,32 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-  --bg-color: #f4f4f4;
-  --text-color: #333;
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --success-color: #28a745;
-  --danger-color: #dc3545;
-  --light-color: #f8f9fa;
-  --dark-color: #343a40;
+  --bg-color: #1a1a1a; /* Dark background */
+  --text-color: #f0f0f0; /* Light text */
+  --primary-color: #ffd700; /* Yellow */
+  --secondary-color: #ff85a2; /* Pastel pink */
+  --success-color: #3bd87e; /* Green */
+  --danger-color: #ff4d4d; /* Red */
+  --light-color: #ffe5e9; /* Light pink */
+  --dark-color: #2c3e50; /* Dark blue */
 }
 
-.dark-mode {
-  --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
-  --primary-color: #3498db;
-  --secondary-color: #95a5a6;
-  --success-color: #2ecc71;
-  --danger-color: #e74c3c;
-  --light-color: #34495e;
-  --dark-color: #ecf0f1;
+* {
+  box-sizing: border-box;
 }
-
-* { box-sizing: border-box; }
 
 body {
   font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
+  line-height: 1.0;
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
@@ -37,11 +28,11 @@ body {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 2rem auto;
-  background-color: var(--light-color);
+  margin: auto;
+  background-color: var(--bg-color); /* Dark background */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  padding: 2rem;
+  padding: 0.5rem;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -49,10 +40,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-h1, h2 { 
+h1, h2 {
   color: var(--primary-color);
   margin-bottom: 1rem;
   transition: color 0.3s;
@@ -71,17 +62,23 @@ table {
 th, td {
   text-align: left;
   padding: 12px;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--light-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
 th {
-  background-color: var(--primary-color);
-  color: var(--light-color);
+  background-color: var(--secondary-color); /* Pastel pink */
+  color: var(--dark-color);
 }
 
-tr:nth-child(even) { background-color: var(--bg-color); }
-tr:hover { background-color: var(--secondary-color); color: var(--light-color); }
+tr:nth-child(even) {
+  background-color: var(--bg-color);
+}
+
+tr:hover {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+}
 
 button {
   padding: 10px 15px;
@@ -89,24 +86,32 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s, transform 0.1s;
+  transition: background-color 0.3s, transform 0.1s, color 0.3s;
 }
 
-button:hover { transform: scale(1.05); }
-button:active { transform: scale(0.95); }
+button:hover {
+  transform: scale(1.05);
+}
 
-#darkModeToggle {
-  background-color: var(--dark-color);
-  color: var(--light-color);
+button:active {
+  transform: scale(0.95);
 }
 
 #createCartBtn {
-  background-color: var(--success-color);
-  color: var(--light-color);
+  background-color: var(--primary-color);
+  color: var(--dark-color);
   font-size: 1.1rem;
   padding: 12px 20px;
   display: block;
   margin: 1rem auto;
+  border: 2px solid var(--secondary-color); /* Add border */
+  border-radius: 20px; /* Rounded corners */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+#createCartBtn:hover {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
 }
 
 form {
@@ -125,7 +130,7 @@ input {
 
 form button {
   background-color: var(--primary-color);
-  color: var(--light-color);
+  color: var(--dark-color);
   grid-column: span 2;
 }
 
@@ -138,22 +143,28 @@ form button {
 }
 
 #invoiceSection table {
-  background-color: var(--light-color);
+  background-color: var(--secondary-color);
 }
 
 #invoiceSection h2 {
-  color: var(--success-color);
+  color: var(--primary-color);
 }
 
 #invoiceSection p {
   font-size: 1.2rem;
   font-weight: bold;
   text-align: right;
-  color: var(--success-color);
+  color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
-  .container { width: 95%; padding: 1rem; }
-  form { grid-template-columns: 1fr; }
-  form button { grid-column: span 1; }
+  .container {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
 }

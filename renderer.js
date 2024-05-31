@@ -169,8 +169,5 @@ function createCart() {
 
 // Event listeners setup
 window.onload = () => {
-  document.getElementById('createCartBtn').onclick = createCart;
-  document.getElementById('darkModeToggle').onclick = () => {
-    document.body.classList.toggle('dark-mode');
-  };
+  document.getElementById('createCartBtn').onclick = createCart
 };
