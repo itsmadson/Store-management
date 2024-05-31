@@ -2,15 +2,14 @@
   "name": "shop",
   "version": "1.0.0",
   "description": "Store Management Application",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "rebuild": "node-gyp rebuild --binding=\"E:/uni stuff/programing/final project/shop/binding.gyp\""
+    "start": "electron ."
   },
   "dependencies": {
     "electron": "^30.0.8"
   },
   "devDependencies": {
-    "node-addon-api": "^5.1.0"
+    "electron-packager": "^17.1.2"
   }
 }

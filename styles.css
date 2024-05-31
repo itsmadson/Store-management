@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --primary-color: #3498db;
+  --secondary-color: #95a5a6;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --light-color: #34495e;
+  --dark-color: #ecf0f1;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background-color: var(--light-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+h1, h2 { 
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--secondary-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+tr:nth-child(even) { background-color: var(--bg-color); }
+tr:hover { background-color: var(--secondary-color); color: var(--light-color); }
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover { transform: scale(1.05); }
+button:active { transform: scale(0.95); }
+
+#darkModeToggle {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+#createCartBtn {
+  background-color: var(--success-color);
+  color: var(--light-color);
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  display: block;
+  margin: 1rem auto;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  grid-column: span 2;
+}
+
+#invoiceSection {
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#invoiceSection table {
+  background-color: var(--light-color);
+}
+
+#invoiceSection h2 {
+  color: var(--success-color);
+}
+
+#invoiceSection p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+  color: var(--success-color);
+}
+
+@media (max-width: 768px) {
+  .container { width: 95%; padding: 1rem; }
+  form { grid-template-columns: 1fr; }
+  form button { grid-column: span 1; }
+}
